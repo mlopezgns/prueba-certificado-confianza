@@ -20,7 +20,8 @@ var blockedURLs = [
 "sites.google.com/view/the-classroom-7x/",
 "www.classroom-7x.com/",
 "linktr.ee/classroom.x7.games/",
-"www.classroom-7x.com/category/arcade/"
+"www.classroom-7x.com/category/arcade/",
+"policies.google.com"
 
   ];
 
