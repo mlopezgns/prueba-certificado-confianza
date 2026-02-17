@@ -283,7 +283,6 @@ var blockedDomains = [
 "chatai.com",
 "chatbase.co",
 "chatbot.com",
-"chatgpt.com",
 "chatsimple.ai",
 "cheapnft.art",
 "cheatsheet.md",
