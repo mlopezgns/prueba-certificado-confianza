@@ -779,7 +779,6 @@ var blockedDomains = [
 "onlyrizz.ai",
 "onlywaifus.ai",
 "openai.art",
-"openai.com",
 "openaijourney.com",
 "openaisea.com",
 "openart.ai",
