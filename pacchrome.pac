@@ -3,6 +3,7 @@ function FindProxyForURL(url, host) {
   var direct = "DIRECT";
 
 
+
 // ==================================================================================
 // --- URL ESPECIFICAS A BLOQUEAR (Incluir sin http) ---
 // ==================================================================================
@@ -21,7 +22,12 @@ var blockedURLs = [
 "www.classroom-7x.com/",
 "linktr.ee/classroom.x7.games/",
 "www.classroom-7x.com/category/arcade/",
-"policies.google.com"
+"policies.google.com",
+"gnmath.net",
+"gn-math.dev",
+"jmail.world",
+
+
 
   ];
 
@@ -52,6 +58,9 @@ var blockedDomains = [
 "www.microsoft.com",
 "support.microsoft.com",
 "www.boyamic.com",
+"jmail.world",
+"play.google.com",
+"m.youtube.com",
 
 
 // --------------------------------------
@@ -60,6 +69,8 @@ var blockedDomains = [
 "www.lne.es",
 "www.marca.com",
 "www.crazygames.com",
+"jmail.world",
+
 
 // --------------------------------------
 // Bloquea webs de IAs    --v-v-v-v-v-v--
@@ -318,8 +329,6 @@ var blockedDomains = [
 "conservationcubclub.com",
 "contentatscale.ai",
 "cookup.ai",
-"copilot.github.com",
-"copilot.microsoft.com",
 "corporateheadshots.ai",
 "cotax.art",
 "coursebox.ai",
@@ -1414,8 +1423,6 @@ var blockedDomains = [
 "www.conservationcubclub.com",
 "www.contentatscale.ai",
 "www.cookup.ai",
-"www.copilot.github.com",
-"www.copilot.microsoft.com",
 "www.corporateheadshots.ai",
 "www.cotax.art",
 "www.coursebox.ai",
@@ -2280,7 +2287,8 @@ var blockedDomains = [
 "zetu.art",
 "zleague.gg",
 "zmo.ai",
-"zust.ai"
+"zust.ai",
+"astra.ai",
 
   ];
 
@@ -2306,12 +2314,17 @@ var blockedDomains = [
   }
 
 // --- BLOQUEO DE URLs ESPECÍFICAS ---
-  for (var j = 0; j < blockedURLs.length; j++) {
-    var specific = blockedURLs[j];
-    if (shExpMatch(url, "*://" + specific + "*")) {
-      return block;
-    }
+for (var j = 0; j < blockedURLs.length; j++) {
+  var specific = blockedURLs[j];
+  if (
+    shExpMatch(url, "http://" + specific + "*")  ||
+    shExpMatch(url, "https://" + specific + "*") ||
+    shExpMatch(url, "http://www." + specific + "*")  ||
+    shExpMatch(url, "https://www." + specific + "*")
+  ) {
+    return block;
   }
+}
 
 // --- TODO LO DEMÁS SE CONECTA DIRECTAMENTE ---
   return direct;
