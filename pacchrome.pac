@@ -2327,7 +2327,7 @@ if (esYoutube) {
 
   // Bloqueo de lunes a viernes de horainicio a horafin (hora local)
   var enHorarioPrueba = (diaSemana >= 1 && diaSemana <= 5) &&
-                        (horaLocal >= 8 && horaLocal < 17);
+                        (horaLocal >= 8 && horaLocal < 18);
 
   if (enHorarioPrueba) {
     return block;
