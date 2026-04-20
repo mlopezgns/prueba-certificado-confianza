@@ -2325,9 +2325,9 @@ if (esYoutube) {
   var minutosLocal = ahora.getUTCMinutes();
   var diaSemana = ahora.getDay(); // 0=Dom, 1=Lun...5=Vie, 6=Sab
 
-  // Bloqueo de lunes a viernes de 11:00 a 11:15 (hora local)
+  // Bloqueo de lunes a viernes de horainicio a horafin (hora local)
   var enHorarioPrueba = (diaSemana >= 1 && diaSemana <= 5) &&
-                        (horaLocal === 12 && minutosLocal < 40);
+                        (horaLocal >= 8 && horaLocal < 13);
 
   if (enHorarioPrueba) {
     return block;
