@@ -2293,6 +2293,46 @@ var blockedDomains = [
   ];
 
 
+// ========================================================
+// --- BLOQUEO DE YOUTUBE POR HORARIO (PRUEBA 11:00-11:15) ---
+// ========================================================
+
+var youtubeHosts = [
+  "youtube.com",
+  "www.youtube.com",
+  "youtu.be",
+  "ytimg.com",
+  "googlevideo.com",
+  "yt3.ggpht.com",
+  "youtube-nocookie.com"
+];
+
+var esYoutube = false;
+for (var y = 0; y < youtubeHosts.length; y++) {
+  if (dnsDomainIs(host, youtubeHosts[y])) {
+    esYoutube = true;
+    break;
+  }
+}
+
+if (esYoutube) {
+  var ahora = new Date();
+  // Ajuste dinámico de zona horaria (España: UTC+1 invierno / UTC+2 verano)
+  var offsetHoras = -ahora.getTimezoneOffset() / 60;
+  var horaLocal = ahora.getUTCHours() + offsetHoras;
+  if (horaLocal >= 24) horaLocal -= 24;
+  if (horaLocal < 0)   horaLocal += 24;
+  var minutosLocal = ahora.getUTCMinutes();
+  var diaSemana = ahora.getDay(); // 0=Dom, 1=Lun...5=Vie, 6=Sab
+
+  // Bloqueo de lunes a viernes de horainicio a horafin (hora local)
+  var enHorarioPrueba = (diaSemana >= 1 && diaSemana <= 5) &&
+                        (horaLocal >= 8 && horaLocal < 17);
+
+  if (enHorarioPrueba) {
+    return block;
+  }
+}
 
 
 
