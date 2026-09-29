@@ -61,6 +61,7 @@ var blockedDomains = [
 "jmail.world",
 "play.google.com",
 "m.youtube.com",
+"support.google.com", // Ayuda de cuentas Google (p=account_iph), usada como bypass
 
 
 // --------------------------------------
